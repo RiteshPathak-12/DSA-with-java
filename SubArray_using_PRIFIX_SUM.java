@@ -20,6 +20,7 @@ class SubArray_using_PRIFIX_SUM{
         System.err.println();
         System.out.println("Sum of SubArray are :- ");
         MaxSubArrayUsingPRIFIX_SUM(a);
+        sameArray(a);
 
     }
     static int[] MaxSubArrayUsingPRIFIX_SUM(int a[]) {
@@ -35,5 +36,18 @@ class SubArray_using_PRIFIX_SUM{
             System.out.print(prifix[i]+"\t");
         }
         return prifix;
+    }
+/* Using prifix sum algorithm calculate prifix sum in same array without using other array */
+    static int[] sameArray(int a[])
+    {
+        for(int i=1;i<a.length;i++){
+            a[i]=a[i]+a[i-1];
+        }
+        System.out.println("Now prifix sum of given array without using other array :- ");
+        for(int i=0;i<a.length;i++)
+        {
+            System.out.print(a[i]+"\t");
+        }
+        return a;
     }
 }
