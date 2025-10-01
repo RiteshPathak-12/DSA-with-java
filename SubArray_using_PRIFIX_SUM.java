@@ -20,8 +20,13 @@ class SubArray_using_PRIFIX_SUM{
         System.err.println();
         System.out.println("Sum of SubArray are :- ");
         MaxSubArrayUsingPRIFIX_SUM(a);
+        System.out.println();
         sameArray(a);
-
+        System.out.println();
+        System.out.println("Maximum sum of this array are :- ");
+        System.out.println();
+        int b=Using_Kadane_Algorithm(a);
+        System.out.println(b);
     }
     static int[] MaxSubArrayUsingPRIFIX_SUM(int a[]) {
         int n=a.length;
@@ -49,5 +54,26 @@ class SubArray_using_PRIFIX_SUM{
             System.out.print(a[i]+"\t");
         }
         return a;
+    }
+
+    /* Using Kadane's Algorithm finding the maximum sum of subArray */
+    static int Using_Kadane_Algorithm(int a[])
+    {
+        int currentSum=0;
+        int maxSum=Integer.MIN_VALUE;
+        for(int i=0;i<a.length;i++)
+        {
+            currentSum=currentSum+a[i];
+            if(currentSum<0)
+            {
+                currentSum=0;
+
+            }
+            if(maxSum<currentSum)
+            {
+                maxSum=currentSum;
+            }
+        } 
+        return currentSum;  
     }
 }
